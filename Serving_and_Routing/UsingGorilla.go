@@ -17,11 +17,11 @@ func pageHandler(w http.ResponseWriter, r *http.Request) {
 func pageHandlerWith404(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	pageId := vars["id"]
-	fileName := "files/" + pageId + ".html"
+	fileName := "Serving_and_Routing/files/" + pageId + ".html"
 	//here we chech if this file exist or not
 	if _, err := os.Stat(fileName); err != nil {
 		if os.IsNotExist(err) {
-			fileName = "files/404.html"
+			fileName = "Serving_and_Routing/files/404.html"
 		}
 	}
 	http.ServeFile(w, r, fileName)
